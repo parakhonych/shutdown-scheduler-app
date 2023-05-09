@@ -31,6 +31,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.spin_box_seconds.valueChanged.connect(self.live_show_timer)
         self.action_autor.triggered.connect(self.autor)
         self.action_about.triggered.connect(self.about)
+        self.action_help.triggered.connect(self.help)
 
 
     def start(self):
@@ -67,12 +68,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         os.system(f'shutdown /a')
 
     def help(self):
-        pass
+        text = """              
+                <p style="text-align: center">
+                    <table>
+                        <tr><td>The application can be used to set a countdown until the computer </td></tr>
+                        <tr><td>shutdown or reboot, with the ability to track how much time is left.</td></tr>
+                        <tr><td>To use the program, you should first set the desired time using the </td></tr>
+                        <tr><td>appropriate combo boxes, and then click the START button. If you want to</td></tr>
+                        <tr><td>cancel this action, just press the STOP button. It is worth noting that the </td></tr>
+                        <tr><td>EXIT button closes the program but does not cancel the already set off timer.</td></tr>     
+                    </table>
+               """
+        QMessageBox.information(self, "About", text)
 
     def about(self):
         text = """              
                                                 <p style="text-align: center">
                                                <table>
+                                                   <tr><td>Program name:</td><td>Shutdown scheduler app</td></tr>
                                                    <tr><td>Version:</td><td>1.0.0</td></tr>
                                                </table>
                                               """
