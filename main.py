@@ -1,6 +1,6 @@
 import sys
 import os
-from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
 from UI_main_window import Ui_MainWindow
 from PyQt6.QtCore import QTimer
 
@@ -29,6 +29,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.spin_box_hours.valueChanged.connect(self.live_show_timer)
         self.spin_box_minutes.valueChanged.connect(self.live_show_timer)
         self.spin_box_seconds.valueChanged.connect(self.live_show_timer)
+        self.action_autor.triggered.connect(self.autor)
+        self.action_about.triggered.connect(self.about)
 
 
     def start(self):
@@ -43,7 +45,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def live_show_timer(self):
         self.time = self.spin_box_hours.value() * TIME_UNITS['hour'] + \
-                    self.spin_box_minutes.value() * TIME_UNITS['minute']+ self.spin_box_seconds.value()
+                    self.spin_box_minutes.value() * TIME_UNITS['minute'] + self.spin_box_seconds.value()
         self.__time_dispay()
 
     def __update_label(self):
@@ -63,6 +65,31 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.button_start.setEnabled(True)
         self.timer.stop()
         os.system(f'shutdown /a')
+
+    def help(self):
+        pass
+
+    def about(self):
+        text = """              
+                                                <p style="text-align: center">
+                                               <table>
+                                                   <tr><td>Version:</td><td>1.0.0</td></tr>
+                                               </table>
+                                              """
+
+        QMessageBox.information(self, "About", text)
+
+    def autor(self):
+        text = """              
+                                        <p style="text-align: center">
+                                       <table>
+                                           <tr><td>Autor:</td><td>Volodymyr Parakhonych</td></tr>
+                                           <tr><td>GitHub:</td><td><a href='https://github.com/vparakhonych'> vparakhonych </a></td></tr>
+                                           <tr><td>Linkedin:</td><td><a href='https://www.linkedin.com/in/parakhonych/'>parakhonych</a></td></tr>
+                                       </table>
+                                      """
+
+        QMessageBox.information(self, "Autor", text)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

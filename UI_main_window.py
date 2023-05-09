@@ -64,8 +64,11 @@ class Ui_MainWindow(object):
         self.action_exit.setObjectName("actionExit")
         self.action_autor = QtGui.QAction(parent=MainWindow)
         self.action_autor.setObjectName("actionAutor")
+        self.action_about = QtGui.QAction(parent=MainWindow)
+        self.action_about.setObjectName("actionAutor")
         #self.menuMenu.addAction(self.action_settings)
         self.menuMenu.addAction(self.action_exit)
+        self.menuAbout.addAction(self.action_about)
         self.menuAbout.addAction(self.action_autor)
         self.menubar.addAction(self.menuMenu.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
@@ -90,6 +93,7 @@ class Ui_MainWindow(object):
         self.action_settings.setText(_translate("MainWindow", "Settings"))
         self.action_exit.setText(_translate("MainWindow", "Exit"))
         self.action_autor.setText(_translate("MainWindow", "Autor"))
+        self.action_about.setText(_translate("MainWindow", "About"))
 
 
 if __name__ == "__main__":
