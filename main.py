@@ -1,5 +1,5 @@
-import sys
-import os
+from sys import argv
+from os import system
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox
 from UI_main_window import Ui_MainWindow
 from PyQt6.QtCore import QTimer
@@ -29,7 +29,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.spin_box_hours.valueChanged.connect(self.live_show_timer)
         self.spin_box_minutes.valueChanged.connect(self.live_show_timer)
         self.spin_box_seconds.valueChanged.connect(self.live_show_timer)
-        self.action_autor.triggered.connect(self.autor)
+        self.action_author.triggered.connect(self.author)
         self.action_about.triggered.connect(self.about)
         self.action_help.triggered.connect(self.help)
 
@@ -39,15 +39,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.button_start.setEnabled(False)
         self.time = self.spin_box_hours.value()*TIME_UNITS['hour'] \
                     + self.spin_box_minutes.value() * TIME_UNITS['minute'] + self.spin_box_seconds.value()
-        os.system(f'shutdown {self.functions[self.combo_box_function.currentText()]} /t {self.time}')
+        system(f'cmd /c shutdown {self.functions[self.combo_box_function.currentText()]} /t {self.time}')
         self.timer = QTimer()
         self.timer.timeout.connect(self.__update_label)
         self.timer.start(1000)  # Update label every 1000 ms (1 second)
 
     def live_show_timer(self):
-        self.time = self.spin_box_hours.value() * TIME_UNITS['hour'] + \
-                    self.spin_box_minutes.value() * TIME_UNITS['minute'] + self.spin_box_seconds.value()
-        self.__time_dispay()
+        if self.button_start.isEnabled():
+            self.time = self.spin_box_hours.value() * TIME_UNITS['hour'] + \
+                        self.spin_box_minutes.value() * TIME_UNITS['minute'] + self.spin_box_seconds.value()
+            self.__time_dispay()
 
     def __update_label(self):
         self.time += -1
@@ -65,7 +66,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.button_stop.setEnabled(False)
         self.button_start.setEnabled(True)
         self.timer.stop()
-        os.system(f'shutdown /a')
+        system(f'shutdown /a')
 
     def help(self):
         text = """              
@@ -92,20 +93,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         QMessageBox.information(self, "About", text)
 
-    def autor(self):
+    def author(self):
         text = """              
                                         <p style="text-align: center">
                                        <table>
-                                           <tr><td>Autor:</td><td>Volodymyr Parakhonych</td></tr>
+                                           <tr><td>Author:</td><td>Volodymyr Parakhonych</td></tr>
                                            <tr><td>GitHub:</td><td><a href='https://github.com/vparakhonych'> vparakhonych </a></td></tr>
                                            <tr><td>Linkedin:</td><td><a href='https://www.linkedin.com/in/parakhonych/'>parakhonych</a></td></tr>
                                        </table>
                                       """
 
-        QMessageBox.information(self, "Autor", text)
+        QMessageBox.information(self, "Author", text)
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
+    app = QApplication(argv)
     window = MainWindow()
     window.show()
 
