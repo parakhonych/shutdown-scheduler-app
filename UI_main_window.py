@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Shutdown scheduler app"))
-        self.label_time.setText(_translate("MainWindow", "00h:00m:00s"))
+        self.label_time.setText(_translate("MainWindow", "01h:00m:00s"))
         self.button_start.setText(_translate("MainWindow", "START"))
         self.button_stop.setText(_translate("MainWindow", "STOP"))
         self.button_exit.setText(_translate("MainWindow", "EXIT"))
