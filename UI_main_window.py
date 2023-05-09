@@ -16,6 +16,7 @@ class Ui_MainWindow(object):
         self.spin_box_hours.setGeometry(QtCore.QRect(60, 100, 40, 31))
         self.spin_box_hours.setMaximum(24)
         self.spin_box_hours.setObjectName("spin_box_hours")
+        self.spin_box_hours.setValue(1)
         self.button_start = QtWidgets.QPushButton(parent=self.centralwidget)
         self.button_start.setGeometry(QtCore.QRect(70, 150, 75, 24))
         self.button_start.setObjectName("button_start")
