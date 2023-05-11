@@ -1,4 +1,4 @@
-# Shutdown scheduler app
+# Shutdown scheduler
 ![python]
 ![pyqt]
 ![windows]
@@ -58,9 +58,8 @@ $ python main.py
 ```
 ---
 ## Download
-
-As mentioned above, you can also download the desktop portable version of the application <br> 
-for Windows [here][link].
+ As mentioned above, you can also download the desktop portable version of the application <br> 
+ for Windows [here][link].
 ---
 ## License
 
@@ -74,6 +73,7 @@ The full text of the license is available [here][license-url].
 > LinkedIn [@parakhonych](https://www.linkedin.com/in/parakhonych)
 
 ---
+
 
 <!-- Markdown links and images -->
 [python]:https://img.shields.io/badge/Python%203.9+-14354C?style=for-the-badge&logo=python&logoColor=white
