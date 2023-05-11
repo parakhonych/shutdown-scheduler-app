@@ -58,6 +58,7 @@ $ python main.py
 ```
 ---
 ## Download
+
  As mentioned above, you can also download the desktop portable version of the application <br> 
  for Windows [here][link].
 ---
