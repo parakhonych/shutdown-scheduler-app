@@ -59,8 +59,9 @@ $ python main.py
 ---
 ## Download
 
- As mentioned above, you can also download the desktop portable version of the application <br> 
- for Windows [here][link].
+As mentioned above, you can also download <br> 
+the desktop portable version of the application for Windows [here][link].
+
 ---
 ## License
 
